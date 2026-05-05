@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ram-estimate-builder
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 2 --timeout 120
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ram-estimate-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+
+databases:
+  - name: ram-estimate-db
+    plan: free

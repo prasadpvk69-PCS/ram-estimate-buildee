@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.xlsx
+*.xls
+~$*
+ram_data_export.sql
+export_data.py
+setup_db.py
